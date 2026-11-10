@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Административная панель — Открой Оренбуржье</title>
+  <meta name="description" content="Административная панель платформы «Открой Оренбуржье»: добавление достопримечательностей и управление публикациями.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="media/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+      <img id="logo" src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+    </a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Открыть меню навигации">
+    <label class="nav-burger" for="nav-toggle"><span></span><span></span><span></span></label>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link" id="nav-login" href="login.html">Войти</a></li>
+        <li><a class="main-nav__link" id="nav-register" href="register.html">Регистрация</a></li>
+        <li><a class="main-nav__link" id="nav-profile" href="profile.html">Личный кабинет</a></li>
+        <li><a class="main-nav__link" id="nav-catalog" href="index.html#popular-section">Популярные достопримечательности</a></li>
+        <li><a class="main-nav__link" id="go-to-search" href="index.html#search-section">Поиск достопримечательностей</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page__main" id="main">
+  <div class="container section">
+    <nav aria-label="Хлебные крошки">
+      <ol class="breadcrumbs">
+        <li><a href="index.html">Главная</a></li>
+        <li>Административная панель</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="container" style="padding-bottom:3rem;">
+    <h1 class="section-title">Административная панель</h1>
+    <p class="section-subtitle">Добавление новых достопримечательностей и модерация публикаций пользователей.</p>
+
+    <div class="grid grid--split">
+      <!-- ============ Форма добавления ============ -->
+      <section class="card" aria-labelledby="admin-add-title">
+        <h2 class="card__title" id="admin-add-title">Новая достопримечательность</h2>
+
+        <form id="admin-add-form" action="#" method="post" enctype="multipart/form-data" novalidate>
+          <div class="form-field">
+            <label class="form-label" for="admin-title">Название достопримечательности <span class="required" aria-hidden="true">*</span></label>
+            <input class="form-control" type="text" id="admin-title" name="title" placeholder="Например: Губерлинские горы" maxlength="80" required>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="admin-category">Категория <span class="required" aria-hidden="true">*</span></label>
+            <select class="form-control" id="admin-category" name="category" required>
+              <option value="" selected disabled>Выберите категорию</option>
+              <option>Памятник архитектуры</option>
+              <option>Природный объект</option>
+              <option>Музей</option>
+              <option>Историческое место</option>
+              <option>Религиозное сооружение</option>
+              <option>Другое</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="admin-cover">Изображение обложки</label>
+            <label class="file-drop" for="admin-cover">
+              <input type="file" id="admin-cover" name="cover" accept="image/png, image/jpeg, image/webp">
+              <span>Загрузите обложку достопримечательности (png, jpg, webp)</span>
+            </label>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="admin-author">Автор публикации (ФИО или организация)</label>
+            <input class="form-control" type="text" id="admin-author" name="author" placeholder="Например: Оренбургский краеведческий музей">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="admin-description">Описание достопримечательности</label>
+            <textarea class="form-control" id="admin-description" name="description" rows="5" placeholder="Краткое и подробное описание места"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="admin-gallery">Загрузка дополнительных изображений</label>
+            <label class="file-drop" for="admin-gallery">
+              <input type="file" id="admin-gallery" name="gallery[]" accept="image/png, image/jpeg, image/webp" multiple>
+              <span>Можно выбрать несколько файлов</span>
+            </label>
+          </div>
+
+          <button class="btn" type="submit">Добавить достопримечательность</button>
+        </form>
+      </section>
+
+      <!-- ============ Список достопримечательностей ============ -->
+      <section class="card" aria-labelledby="admin-list-title">
+        <h2 class="card__title" id="admin-list-title">Список достопримечательностей</h2>
+
+        <div class="admin-grid" id="admin-landmarks-list">
+          <article class="admin-card">
+            <h3 class="admin-card__title">Караван-Сарай</h3>
+            <span class="badge badge--approved">Одобрена</span>
+            <p class="admin-card__meta">Дата добавления: 12.03.2026</p>
+          </article>
+
+          <article class="admin-card">
+            <h3 class="admin-card__title">Оренбургская степь</h3>
+            <span class="badge badge--pending">На проверке</span>
+            <p class="admin-card__meta">Дата добавления: 02.04.2026</p>
+          </article>
+
+          <article class="admin-card">
+            <h3 class="admin-card__title">Ириклинское водохранилище</h3>
+            <span class="badge badge--rejected">Отклонена</span>
+            <p class="admin-card__meta">Дата добавления: 21.02.2026</p>
+          </article>
+
+          <article class="admin-card">
+            <h3 class="admin-card__title">Соль-Илецкое озеро Развал</h3>
+            <span class="badge badge--approved">Одобрена</span>
+            <p class="admin-card__meta">Дата добавления: 28.01.2026</p>
+          </article>
+        </div>
+
+        <nav class="pagination" aria-label="Пагинация списка">
+          <a class="pagination__item is-active" href="#" aria-current="page">1</a>
+          <a class="pagination__item" href="#">2</a>
+          <a class="pagination__item" href="#">3</a>
+          <a class="pagination__item" href="#">Вперёд</a>
+        </nav>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+          <img src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+        </a>
+        <p>Веб-платформа для сбора и представления информации о достопримечательностях Оренбургской области.</p>
+      </div>
+      <nav aria-label="Навигация по сайту">
+        <h2 class="site-footer__title">Навигация по сайту</h2>
+        <a class="site-footer__link" href="index.html">Главная</a>
+        <a class="site-footer__link" href="login.html">Вход</a>
+        <a class="site-footer__link" href="register.html">Регистрация</a>
+        <a class="site-footer__link" href="profile.html">Личный кабинет</a>
+        <a class="site-footer__link" href="landmark.html">Страница достопримечательности</a>
+        <a class="site-footer__link" href="admin.html">Административная панель</a>
+        <a class="site-footer__link" href="index_dark.html">Главная - тёмная тема</a>
+      </nav>
+      <div>
+        <h2 class="site-footer__title">Контакты</h2>
+        <p>Оренбургская область, г. Оренбург</p>
+        <p><a href="tel:+78007654321">8-800-765-43-21</a><br>
+           <a href="mailto:info@orenlandmarks.ru">info@orenlandmarks.ru</a></p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 «Открой Оренбуржье». Все права защищены.</span>
+      <span>Региональный чемпионат «Профессионалы», компетенция «Веб-технологии».</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

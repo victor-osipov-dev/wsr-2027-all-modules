@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вход — Открой Оренбуржье</title>
+  <meta name="description" content="Вход в личный кабинет платформы «Открой Оренбуржье».">
+  <link rel="icon" href="media/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+      <img id="logo" src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+    </a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Открыть меню навигации">
+    <label class="nav-burger" for="nav-toggle"><span></span><span></span><span></span></label>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link is-active" id="nav-login" href="login.html">Войти</a></li>
+        <li><a class="main-nav__link" id="nav-register" href="register.html">Регистрация</a></li>
+        <li><a class="main-nav__link" id="nav-profile" href="profile.html">Личный кабинет</a></li>
+        <li><a class="main-nav__link" id="nav-catalog" href="index.html#popular-section">Популярные достопримечательности</a></li>
+        <li><a class="main-nav__link" id="go-to-search" href="index.html#search-section">Поиск достопримечательностей</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page__main" id="main">
+  <div class="container section">
+    <nav aria-label="Хлебные крошки">
+      <ol class="breadcrumbs">
+        <li><a href="index.html">Главная</a></li>
+        <li>Вход</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="container" style="padding-bottom:3rem;">
+    <div class="auth">
+      <aside class="auth__aside">
+        <h2>С возвращением!</h2>
+        <p>Войдите, чтобы добавлять достопримечательности, управлять публикациями и делиться любимыми местами Оренбуржья.</p>
+        <ul>
+          <li>Личный кабинет с вашими местами</li>
+          <li>Отслеживание статуса модерации</li>
+          <li>Отзывы и оценки путешественников</li>
+        </ul>
+      </aside>
+
+      <section class="auth__form" aria-labelledby="login-title">
+        <h1 class="section-title" id="login-title" style="font-size:1.8rem;">Вход в личный кабинет</h1>
+        <p class="section-subtitle">Введите e-mail и пароль, указанные при регистрации.</p>
+
+        <form action="profile.html" method="post" novalidate>
+          <div class="form-field">
+            <label class="form-label" for="login-email">E-mail <span class="required" aria-hidden="true">*</span></label>
+            <input class="form-control" type="email" id="login-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="login-password">Пароль <span class="required" aria-hidden="true">*</span></label>
+            <input class="form-control" type="password" id="login-password" name="password" placeholder="Ваш пароль" autocomplete="current-password" minlength="5" required>
+          </div>
+
+          <button class="btn btn--block" type="submit">Войти</button>
+        </form>
+
+        <p class="auth__alt"><a href="#">Забыли пароль?</a></p>
+        <p class="auth__alt">Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+          <img src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+        </a>
+        <p>Веб-платформа для сбора и представления информации о достопримечательностях Оренбургской области.</p>
+      </div>
+      <nav aria-label="Навигация по сайту">
+        <h2 class="site-footer__title">Навигация по сайту</h2>
+        <a class="site-footer__link" href="index.html">Главная</a>
+        <a class="site-footer__link" href="login.html">Вход</a>
+        <a class="site-footer__link" href="register.html">Регистрация</a>
+        <a class="site-footer__link" href="profile.html">Личный кабинет</a>
+        <a class="site-footer__link" href="landmark.html">Страница достопримечательности</a>
+        <a class="site-footer__link" href="admin.html">Административная панель</a>
+        <a class="site-footer__link" href="index_dark.html">Главная - тёмная тема</a>
+      </nav>
+      <div>
+        <h2 class="site-footer__title">Контакты</h2>
+        <p>Оренбургская область, г. Оренбург</p>
+        <p><a href="tel:+78007654321">8-800-765-43-21</a><br>
+           <a href="mailto:info@orenlandmarks.ru">info@orenlandmarks.ru</a></p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 «Открой Оренбуржье». Все права защищены.</span>
+      <span>Региональный чемпионат «Профессионалы», компетенция «Веб-технологии».</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

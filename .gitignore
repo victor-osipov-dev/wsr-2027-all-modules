@@ -1,0 +1,21 @@
+# Секреты и локальные настройки (кроме примеров)
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+
+# Публичная ссылка на хранилище и загруженные изображения рецептов
+**/public/storage/
+**/storage/app/public/recipes/*
+!**/storage/app/public/recipes/.gitignore
+
+# Логи и системный мусор
+**/*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp

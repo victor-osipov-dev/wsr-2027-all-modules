@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Открой Оренбуржье — достопримечательности Оренбургской области</title>
+        <meta
+            name="description"
+            content="Открой Оренбуржье — платформа о достопримечательностях Оренбургской области: природа, музеи, памятники архитектуры."
+        />
+        <link rel="icon" type="image/png" href="media/favicon.png" />
+        <link rel="stylesheet" href="css/site.css" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+    </head>
+    <body>
+        <header>
+            <div class="wrap bar">
+                <a href="index.html" aria-label="На главную"
+                    ><img id="logo" src="media/logo.png" alt="Логотип «Открой Оренбуржье»"
+                /></a>
+                <input type="checkbox" id="burger" />
+                <label class="burger" for="burger" aria-label="Меню"><span></span><span></span><span></span></label>
+                <nav id="main-nav" aria-label="Основное меню">
+                    <ul>
+                        <li><a id="nav-login" href="login.html">Войти</a></li>
+                        <li><a id="nav-register" href="register.html">Регистрация</a></li>
+                        <li><a id="nav-profile" href="profile.html">Личный кабинет</a></li>
+                        <li><a id="nav-catalog" href="#popular-section">Популярные достопримечательности</a></li>
+                        <li><a id="go-to-search" href="#search-section">Поиск достопримечательностей</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero -->
+            <div class="hero">
+                <div class="wrap">
+                    <h1>Открой Оренбуржье</h1>
+                    <p>
+                        Платформа о достопримечательностях Оренбургской области. Создана для туристов и путешественников
+                        от 16 лет, а также для краеведов Оренбуржья.
+                    </p>
+                    <a class="btn" href="#search-section">Найти место</a>
+                </div>
+            </div>
+
+            <!-- Быстрый поиск -->
+            <section id="search-section">
+                <div class="wrap">
+                    <h2>Быстрый поиск по категориям</h2>
+                    <p class="mut">Начните вводить название — подсказки появятся сами.</p>
+                    <form action="#popular-section">
+                        <input
+                            type="search"
+                            id="search-input"
+                            list="tips"
+                            placeholder="Например: Музеи, Природные объекты"
+                        />
+                        <datalist id="tips">
+                            <option value="Памятники архитектуры"></option>
+                            <option value="Природные объекты"></option>
+                            <option value="Музеи"></option>
+                            <option value="Исторические места"></option>
+                        </datalist>
+                        <a
+                            class="btn"
+                            id="search-button"
+                            href="#popular-section"
+                            style="margin-top: 8px; display: inline-block"
+                            >Найти</a
+                        >
+                    </form>
+                </div>
+            </section>
+
+            <!-- Преимущества -->
+            <section id="advantages-section">
+                <div class="wrap">
+                    <h2>Преимущества платформы</h2>
+                    <div class="grid g4">
+                        <div class="adv">
+                            <img src="media/img/icon-upload.svg" alt="" />
+                            <h3>Удобная загрузка фотографий</h3>
+                            <p class="mut">Снимки загружаются в пару кликов.</p>
+                        </div>
+                        <div class="adv">
+                            <img src="media/img/icon-map.svg" alt="" />
+                            <h3>Точные координаты на карте</h3>
+                            <p class="mut">Каждое место отмечено на карте.</p>
+                        </div>
+                        <div class="adv">
+                            <img src="media/img/icon-description.svg" alt="" />
+                            <h3>Подробные описания от местных жителей</h3>
+                            <p class="mut">Истории и детали от краеведов.</p>
+                        </div>
+                        <div class="adv">
+                            <img src="media/img/icon-reviews.svg" alt="" />
+                            <h3>Актуальная информация и отзывы путешественников</h3>
+                            <p class="mut">Свежие оценки помогают выбрать.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Популярные: ровно 5 карточек -->
+            <section id="popular-section">
+                <div class="wrap">
+                    <h2>Популярные достопримечательности</h2>
+                    <div class="grid g5">
+                        <article class="landmark-card card">
+                            <img src="media/img/landmark-razval.jpg" alt="Озеро Развал" />
+                            <div class="in">
+                                <span class="badge">Природный объект</span>
+                                <h3>Озеро Развал</h3>
+                                <p class="mut">Автор: Ирина Соколова</p>
+                                <p class="stars">★★★★☆ 4.8 (124)</p>
+                                <a class="btn" href="landmark.html">Подробнее</a>
+                            </div>
+                        </article>
+                        <article class="landmark-card card">
+                            <img src="media/img/landmark-bor.jpg" alt="Бузулукский бор" />
+                            <div class="in">
+                                <span class="badge">Природный объект</span>
+                                <h3>Бузулукский бор</h3>
+                                <p class="mut">Автор: Пётр Кузнецов</p>
+                                <p class="stars">★★★★★ 4.9 (208)</p>
+                                <a class="btn" href="landmark.html">Подробнее</a>
+                            </div>
+                        </article>
+                        <article class="landmark-card card">
+                            <img src="media/img/landmark-karavan-saray.jpg" alt="Караван-Сарай" />
+                            <div class="in">
+                                <span class="badge">Памятник архитектуры</span>
+                                <h3>Караван-Сарай</h3>
+                                <p class="mut">Автор: Алия Хасанова</p>
+                                <p class="stars">★★★★☆ 4.7 (96)</p>
+                                <a class="btn" href="landmark.html">Подробнее</a>
+                            </div>
+                        </article>
+                        <article class="landmark-card card">
+                            <img src="media/img/landmark-museum.jpg" alt="Музей искусств" />
+                            <div class="in">
+                                <span class="badge">Музей</span>
+                                <h3>Музей искусств</h3>
+                                <p class="mut">Автор: Сергей Дорохов</p>
+                                <p class="stars">★★★★☆ 4.6 (73)</p>
+                                <a class="btn" href="landmark.html">Подробнее</a>
+                            </div>
+                        </article>
+                        <article class="landmark-card card">
+                            <img src="media/img/landmark-bridge.jpg" alt="Мост через Урал" />
+                            <div class="in">
+                                <span class="badge">Историческое место</span>
+                                <h3>Мост через Урал</h3>
+                                <p class="mut">Автор: Мария Волкова</p>
+                                <p class="stars">★★★★☆ 4.5 (61)</p>
+                                <a class="btn" href="landmark.html">Подробнее</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Слайдер: 4 слайда, только CSS -->
+            <section id="slider-section">
+                <div class="wrap">
+                    <h2>Красоты Оренбуржья</h2>
+                    <div class="slider">
+                        <input type="radio" name="s" id="slide-1" checked /><input
+                            type="radio"
+                            name="s"
+                            id="slide-2"
+                        /><input type="radio" name="s" id="slide-3" /><input type="radio" name="s" id="slide-4" />
+                        <div class="slides">
+                            <article>
+                                <img src="media/img/landmark-mountains.jpg" alt="Губерлинские горы" />
+                                <div class="cap">
+                                    <h3>Губерлинские горы</h3>
+                                    <p>Скальные холмы и ковыльные степи Оренбуржья.</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="media/img/landmark-reservoir.jpg" alt="Ириклинское водохранилище" />
+                                <div class="cap">
+                                    <h3>Ириклинское водохранилище</h3>
+                                    <p>Чистая вода, острова и отличная рыбалка.</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="media/img/landmark-steppe.jpg" alt="Оренбургская степь" />
+                                <div class="cap">
+                                    <h3>Оренбургская степь</h3>
+                                    <p>Весной — ковёр из диких тюльпанов до горизонта.</p>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="media/img/landmark-razval.jpg" alt="Озеро Развал" />
+                                <div class="cap">
+                                    <h3>Озеро Развал</h3>
+                                    <p>Солёное озеро с целебной водой.</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="arrows">
+                            <span class="ar a1"><label for="slide-4">‹</label><label for="slide-2">›</label></span>
+                            <span class="ar a2"><label for="slide-1">‹</label><label for="slide-3">›</label></span>
+                            <span class="ar a3"><label for="slide-2">‹</label><label for="slide-4">›</label></span>
+                            <span class="ar a4"><label for="slide-3">‹</label><label for="slide-1">›</label></span>
+                        </div>
+                        <div class="dots" id="slider-indicators">
+                            <label class="d1" for="slide-1"></label><label class="d2" for="slide-2"></label
+                            ><label class="d3" for="slide-3"></label><label class="d4" for="slide-4"></label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Партнёры -->
+            <section id="partners-section">
+                <div class="wrap">
+                    <h2>Наши партнёры</h2>
+                    <div class="partners">
+                        <img src="media/img/partner-museum.svg" alt="Краеведческий музей" />
+                        <img src="media/img/partner-reserve.svg" alt="Заповедник Оренбургский" />
+                        <img src="media/img/partner-admin.svg" alt="Администрация области" />
+                        <img src="media/img/partner-resort.svg" alt="Курорт Соль-Илецк" />
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <div class="wrap">
+                <p>
+                    <a href="tel:+78007654321">8-800-765-43-21</a> ·
+                    <a href="mailto:info@orenlandmarks.ru">info@orenlandmarks.ru</a>
+                </p>
+                <nav aria-label="Меню сайта">
+                    <a href="index.html">Главная</a>
+                    <a href="login.html">Вход</a>
+                    <a href="register.html">Регистрация</a>
+                    <a href="profile.html">Личный кабинет</a>
+                    <a href="landmark.html">Страница достопримечательности</a>
+                    <a href="admin.html">Административная панель</a>
+                    <a href="index_dark.html">Главная - тёмная тема</a>
+                </nav>
+            </div>
+        </footer>
+    </body>
+</html>

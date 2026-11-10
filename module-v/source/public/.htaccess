@@ -1,0 +1,11 @@
+# SPA history fallback: все запросы, кроме реальных файлов и папок,
+# отдаются в index.html, чтобы работали прямые ссылки на маршруты vue-router.
+# Файл автоматически попадает в dist/ при сборке (Vite копирует содержимое public/).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

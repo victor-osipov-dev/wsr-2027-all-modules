@@ -1,0 +1,281 @@
+@charset "UTF-8";
+/* ==========================================================================
+   components.css — переиспользуемые компоненты интерфейса
+   Поиск, карточки достопримечательностей, рейтинг, слайдер (CSS-only),
+   секция преимуществ, партнёры, комментарии, значки статусов, уведомления.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Секция быстрого поиска
+   -------------------------------------------------------------------------- */
+.search-bar {
+  display: flex;
+  gap: .75rem;
+  padding: 1rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  max-width: 720px;
+}
+.search-bar .form-control { border-radius: var(--radius-pill); }
+.search-bar .btn { flex: none; }
+
+/* --------------------------------------------------------------------------
+   2. Карточка достопримечательности
+   -------------------------------------------------------------------------- */
+.landmark-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.landmark-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+.landmark-card__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.landmark-card__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease, filter var(--transition);
+}
+.landmark-card:hover .landmark-card__media img { transform: scale(1.06); }
+
+.landmark-card__body { display: flex; flex-direction: column; gap: .5rem; padding: 1rem 1rem 1.25rem; flex: 1; }
+.landmark-card__title { font-size: 1.1rem; margin: 0; }
+.landmark-card__author { font-size: .82rem; color: var(--color-muted); margin: 0; }
+.landmark-card__footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+
+/* --------------------------------------------------------------------------
+   3. Значки (категории, статусы модерации)
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-block;
+  padding: .25rem .7rem;
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface-alt);
+  color: var(--color-text);
+}
+.badge--category { background-color: var(--color-primary); color: #fff; }
+.badge--pending { background-color: #f2d9a0; color: #6b4d09; }
+.badge--approved { background-color: #bfe3c3; color: #1c5122; }
+.badge--rejected { background-color: #f0c0b9; color: #7a1f14; }
+.badge--paid { background-color: #bfe3c3; color: #1c5122; }
+
+/* --------------------------------------------------------------------------
+   4. Рейтинг звёздочками
+   -------------------------------------------------------------------------- */
+.rating { display: inline-flex; align-items: center; gap: .35rem; font-size: .85rem; color: var(--color-muted); }
+.rating__stars { color: var(--color-accent); letter-spacing: 1px; }
+.rating__stars .is-empty { color: var(--color-border); }
+
+/* --------------------------------------------------------------------------
+   5. Инфографика преимуществ
+   -------------------------------------------------------------------------- */
+.advantage {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.advantage:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.advantage__icon {
+  display: grid;
+  place-items: center;
+  width: 56px; height: 56px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+}
+.advantage__icon img { width: 30px; height: 30px; filter: brightness(0) invert(1); }
+.advantage__title { font-size: 1.05rem; margin: 0; }
+.advantage__text { margin: 0; font-size: .9rem; color: var(--color-muted); }
+
+/* --------------------------------------------------------------------------
+   6. Слайдер «Красоты Оренбуржья» (переключение только на CSS)
+   -------------------------------------------------------------------------- */
+.slider__stage { position: relative; }
+.slider__radio { position: absolute; opacity: 0; pointer-events: none; }
+
+.slider__viewport { overflow: hidden; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+.slider__track { display: flex; transition: transform .7s cubic-bezier(.65, .05, .36, 1); }
+
+.slider__slide { position: relative; flex: 0 0 100%; }
+.slider__slide img { width: 100%; height: 480px; object-fit: cover; }
+.slider__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.5rem 2rem 1.75rem;
+  color: #fff;
+  background: linear-gradient(to top, rgba(16, 23, 19, .85), rgba(16, 23, 19, 0));
+}
+.slider__caption h3 { color: #fff; margin-bottom: .35rem; }
+.slider__caption p { margin: 0; max-width: 60ch; color: #e7efe9; }
+
+/* Логика переключения слайдов (без JavaScript) */
+#slide-1:checked ~ .slider__viewport .slider__track { transform: translateX(0); }
+#slide-2:checked ~ .slider__viewport .slider__track { transform: translateX(-100%); }
+#slide-3:checked ~ .slider__viewport .slider__track { transform: translateX(-200%); }
+#slide-4:checked ~ .slider__viewport .slider__track { transform: translateX(-300%); }
+#slide-5:checked ~ .slider__viewport .slider__track { transform: translateX(-400%); }
+
+/* Стрелки «Назад»/«Вперёд»: своя пара для каждого активного слайда */
+.slider__controls { position: absolute; inset: 0; pointer-events: none; }
+.slider__nav { position: absolute; inset: 0; display: none; align-items: center; justify-content: space-between; padding-inline: 1rem; }
+#slide-1:checked ~ .slider__controls .slider__nav--1,
+#slide-2:checked ~ .slider__controls .slider__nav--2,
+#slide-3:checked ~ .slider__controls .slider__nav--3,
+#slide-4:checked ~ .slider__controls .slider__nav--4,
+#slide-5:checked ~ .slider__controls .slider__nav--5 { display: flex; }
+
+.slider__arrow {
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  width: 48px; height: 48px;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--color-primary-dark);
+  background-color: rgba(255, 255, 255, .85);
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--transition), transform var(--transition);
+}
+.slider__arrow:hover { background-color: #fff; transform: scale(1.08); }
+
+/* Индикаторы текущего слайда */
+.slider__indicators {
+  position: absolute;
+  inset: auto 0 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+.slider__dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, .55);
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+.slider__dot:hover { transform: scale(1.2); }
+#slide-1:checked ~ .slider__indicators .slider__dot:nth-child(1),
+#slide-2:checked ~ .slider__indicators .slider__dot:nth-child(2),
+#slide-3:checked ~ .slider__indicators .slider__dot:nth-child(3),
+#slide-4:checked ~ .slider__indicators .slider__dot:nth-child(4),
+#slide-5:checked ~ .slider__indicators .slider__dot:nth-child(5) {
+  background-color: var(--color-accent);
+  transform: scale(1.25);
+}
+
+/* --------------------------------------------------------------------------
+   7. Партнёры
+   -------------------------------------------------------------------------- */
+.partners { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2.5rem; }
+.partners img {
+  height: 54px;
+  width: auto;
+  opacity: .75;
+  filter: grayscale(1);
+  transition: opacity var(--transition), filter var(--transition), transform var(--transition);
+}
+.partners img:hover { opacity: 1; filter: grayscale(0); transform: translateY(-3px); }
+/* Тёмная тема: логотипы партнёров инвертируются для читаемости */
+.theme-dark .partners img,
+html:has(#theme-toggle:checked) .partners img { filter: grayscale(1) invert(1) brightness(1.25); opacity: .85; }
+
+/* --------------------------------------------------------------------------
+   8. Комментарии
+   -------------------------------------------------------------------------- */
+.comment {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.comment__avatar {
+  flex: none;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+.comment__head { display: flex; flex-wrap: wrap; gap: .35rem .75rem; align-items: baseline; }
+.comment__name { font-weight: 700; }
+.comment__date { font-size: .82rem; color: var(--color-muted); }
+.comment__text { margin: .35rem 0 0; }
+
+/* --------------------------------------------------------------------------
+   9. Сообщения (алерты)
+   -------------------------------------------------------------------------- */
+.alert {
+  display: flex;
+  gap: .6rem;
+  padding: .9rem 1.1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-size: .92rem;
+}
+.alert--success { background-color: rgba(46, 125, 50, .1); border-color: rgba(46, 125, 50, .35); color: var(--color-success); }
+.alert--error { background-color: rgba(192, 57, 43, .1); border-color: rgba(192, 57, 43, .35); color: var(--color-danger); }
+.alert--warning { background-color: rgba(200, 162, 75, .16); border-color: rgba(200, 162, 75, .5); color: var(--color-accent-dark); }
+
+/* --------------------------------------------------------------------------
+   10. Пагинация
+   -------------------------------------------------------------------------- */
+.pagination { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; margin-top: 2rem; }
+.pagination__item {
+  display: grid; place-items: center;
+  min-width: 42px; height: 42px;
+  padding-inline: .5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+.pagination__item:hover { border-color: var(--color-primary); color: var(--color-primary); text-decoration: none; }
+.pagination__item.is-active { background-color: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+
+/* --------------------------------------------------------------------------
+   11. Анимации (несколько состояний / цикличность)
+   -------------------------------------------------------------------------- */
+@keyframes float-y {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(200, 162, 75, .5); }
+  70%  { box-shadow: 0 0 0 16px rgba(200, 162, 75, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 162, 75, 0); }
+}
+@keyframes shine-move {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-float { animation: float-y 3.5s ease-in-out infinite; }
+.animate-pulse { animation: pulse-ring 2.4s ease-out infinite; }
+.hero__title-accent {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine-move 6s ease infinite;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "kuhni-mira-spa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SPA-приложение платформы рецептов «Кухни мира» (Модуль В). Vue 3 + Vite + vue-router + axios + Laravel Echo/pusher-js.",
+  "type": "module",
+  "author": "competitor",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "laravel-echo": "^1.17.1",
+    "pusher-js": "^8.4.0",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "vite": "^5.4.10"
+  }
+}

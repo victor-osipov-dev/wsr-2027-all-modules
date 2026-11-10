@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Личный кабинет — Открой Оренбуржье</title>
+  <meta name="description" content="Личный кабинет пользователя платформы «Открой Оренбуржье»: данные профиля, мои достопримечательности и добавление новых мест.">
+  <link rel="icon" href="media/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+      <img id="logo" src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+    </a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Открыть меню навигации">
+    <label class="nav-burger" for="nav-toggle"><span></span><span></span><span></span></label>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <ul class="main-nav__list">
+        <!-- На странице личного кабинета нет пунктов «Войти» и «Регистрация»,
+             зато есть кнопка выхода из аккаунта -->
+        <li><a class="main-nav__link is-active" id="nav-profile" href="profile.html">Личный кабинет</a></li>
+        <li><a class="main-nav__link" id="nav-catalog" href="index.html#popular-section">Популярные достопримечательности</a></li>
+        <li><a class="main-nav__link" id="go-to-search" href="index.html#search-section">Поиск достопримечательностей</a></li>
+        <li><a class="main-nav__link main-nav__link--cta" id="nav-logout" href="login.html">Выйти</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page__main" id="main">
+  <div class="container section">
+    <nav aria-label="Хлебные крошки">
+      <ol class="breadcrumbs">
+        <li><a href="index.html">Главная</a></li>
+        <li>Личный кабинет</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="container" style="padding-bottom:3rem;">
+    <h1 class="section-title">Личный кабинет</h1>
+    <p class="section-subtitle">Управляйте профилем и своими достопримечательностями.</p>
+
+    <div class="profile">
+      <!-- ============ Боковая колонка: профиль и настройки ============ -->
+      <aside class="profile__aside">
+        <section class="card" aria-labelledby="user-info-title">
+          <h2 class="card__title" id="user-info-title">Информация о пользователе</h2>
+          <dl class="user-info" id="user-info">
+            <div class="user-info__row"><dt>E-mail</dt><dd>anna.kraeva@example.com</dd></div>
+            <div class="user-info__row"><dt>Имя</dt><dd>Анна</dd></div>
+            <div class="user-info__row"><dt>Фамилия</dt><dd>Краева</dd></div>
+            <div class="user-info__row"><dt>Дата рождения</dt><dd>14.05.1996</dd></div>
+            <div class="user-info__row"><dt>Телефон</dt><dd>+7 912 345-67-89</dd></div>
+          </dl>
+        </section>
+
+        <section class="card" id="profile-settings" aria-labelledby="settings-title">
+          <h2 class="card__title" id="settings-title">Настройки профиля</h2>
+          <label class="theme-switch" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle">
+            <span class="theme-switch__track" aria-hidden="true"></span>
+            <span class="theme-switch__text">Тёмная тема</span>
+          </label>
+          <p class="form-hint">Переключение светлой и тёмной темы оформления выполнено средствами CSS.</p>
+        </section>
+      </aside>
+
+      <!-- ============ Основная колонка ============ -->
+      <div>
+        <!-- Мои достопримечательности -->
+        <section class="card" aria-labelledby="my-landmarks-title">
+          <h2 class="card__title" id="my-landmarks-title">Мои достопримечательности</h2>
+
+          <div id="my-landmarks">
+            <article class="landmark-row">
+              <img class="landmark-row__thumb" src="media/img/landmark-karavan-saray.jpg" alt="Караван-Сарай" loading="lazy">
+              <div>
+                <h3 class="landmark-row__title">Караван-Сарай</h3>
+                <div class="landmark-row__meta">
+                  <span class="badge badge--approved">Одобрена</span>
+                  <span>Дата добавления: 12.03.2026</span>
+                </div>
+              </div>
+              <div class="landmark-row__actions"><a class="btn btn--ghost" href="#add-landmark-form">Редактировать</a></div>
+            </article>
+
+            <article class="landmark-row">
+              <img class="landmark-row__thumb" src="media/img/landmark-steppe.jpg" alt="Оренбургская степь" loading="lazy">
+              <div>
+                <h3 class="landmark-row__title">Оренбургская степь</h3>
+                <div class="landmark-row__meta">
+                  <span class="badge badge--pending">На проверке</span>
+                  <span>Дата добавления: 02.04.2026</span>
+                </div>
+              </div>
+              <div class="landmark-row__actions"><a class="btn btn--ghost" href="#add-landmark-form">Редактировать</a></div>
+            </article>
+
+            <article class="landmark-row">
+              <img class="landmark-row__thumb" src="media/img/landmark-reservoir.jpg" alt="Ириклинское водохранилище" loading="lazy">
+              <div>
+                <h3 class="landmark-row__title">Ириклинское водохранилище</h3>
+                <div class="landmark-row__meta">
+                  <span class="badge badge--rejected">Отклонена</span>
+                  <span>Дата добавления: 21.02.2026</span>
+                </div>
+              </div>
+              <div class="landmark-row__actions"><a class="btn btn--ghost" href="#add-landmark-form">Редактировать</a></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Форма добавления достопримечательности -->
+        <section class="card" aria-labelledby="add-title">
+          <h2 class="card__title" id="add-title">Добавить достопримечательность</h2>
+
+          <form id="add-landmark-form" action="#" method="post" enctype="multipart/form-data" novalidate>
+            <div class="form-field">
+              <label class="form-label" for="lm-title">Название достопримечательности <span class="required" aria-hidden="true">*</span></label>
+              <input class="form-control" type="text" id="lm-title" name="title" placeholder="Например: Соль-Илецкое озеро Развал" maxlength="80" required>
+              <span class="form-message form-message--empty">Укажите название достопримечательности.</span>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="lm-category">Категория достопримечательности <span class="required" aria-hidden="true">*</span></label>
+              <select class="form-control" id="lm-category" name="category" required>
+                <option value="" selected disabled>Выберите категорию</option>
+                <option>Памятник архитектуры</option>
+                <option>Природный объект</option>
+                <option>Музей</option>
+                <option>Историческое место</option>
+                <option>Религиозное сооружение</option>
+                <option>Другое</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="lm-description">Описание достопримечательности <span class="required" aria-hidden="true">*</span></label>
+              <textarea class="form-control" id="lm-description" name="description" rows="5" placeholder="Расскажите об истории, особенностях и впечатлениях" required></textarea>
+              <span class="form-message form-message--empty">Добавьте описание достопримечательности.</span>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="lm-image">Изображение достопримечательности</label>
+              <label class="file-drop" for="lm-image">
+                <input type="file" id="lm-image" name="image" accept="image/png, image/jpeg, image/webp">
+                <span>Перетащите файл или нажмите, чтобы выбрать изображение (png, jpg, webp)</span>
+              </label>
+            </div>
+
+            <button class="btn" type="submit">Отправить на модерацию</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+          <img src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+        </a>
+        <p>Веб-платформа для сбора и представления информации о достопримечательностях Оренбургской области.</p>
+      </div>
+      <nav aria-label="Навигация по сайту">
+        <h2 class="site-footer__title">Навигация по сайту</h2>
+        <a class="site-footer__link" href="index.html">Главная</a>
+        <a class="site-footer__link" href="login.html">Вход</a>
+        <a class="site-footer__link" href="register.html">Регистрация</a>
+        <a class="site-footer__link" href="profile.html">Личный кабинет</a>
+        <a class="site-footer__link" href="landmark.html">Страница достопримечательности</a>
+        <a class="site-footer__link" href="admin.html">Административная панель</a>
+        <a class="site-footer__link" href="index_dark.html">Главная - тёмная тема</a>
+      </nav>
+      <div>
+        <h2 class="site-footer__title">Контакты</h2>
+        <p>Оренбургская область, г. Оренбург</p>
+        <p><a href="tel:+78007654321">8-800-765-43-21</a><br>
+           <a href="mailto:info@orenlandmarks.ru">info@orenlandmarks.ru</a></p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 «Открой Оренбуржье». Все права защищены.</span>
+      <span>Региональный чемпионат «Профессионалы», компетенция «Веб-технологии».</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

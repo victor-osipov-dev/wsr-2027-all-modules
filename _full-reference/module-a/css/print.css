@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* ==========================================================================
+   print.css — стили для печати (Ctrl+P)
+   Применяется к странице достопримечательности: остаются только название,
+   чёрно-белое изображение и заголовок «Добро пожаловать!».
+   Подключается через media="print" на всех страницах.
+   ========================================================================== */
+
+/* Элемент, видимый только при печати */
+.print-only { display: none; }
+
+@media print {
+  /* 1. Убираем все цветные фоны и тени — печать только в градациях серого */
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  html, body { background: #fff !important; }
+
+  /* 2. Скрываем шапку, подвал, крошки, меню и служебные блоки */
+  .site-header,
+  .site-footer,
+  .breadcrumbs,
+  .nav-burger,
+  .main-nav,
+  .hero,
+  .correction,
+  .comments,
+  .comment,
+  .landmark-meta,
+  .landmark-facts,
+  .landmark-description,
+  .btn,
+  .alert,
+  .theme-switch { display: none !important; }
+
+  /* 3. Показываем заголовок «Добро пожаловать!» */
+  .print-only { display: block !important; font-size: 1.6rem; font-weight: 700; margin-bottom: .75rem; }
+
+  /* 4. Изображение — только чёрно-белое (градации серого) */
+  img,
+  .landmark-article__media img { filter: grayscale(100%) contrast(1.05) !important; }
+
+  /* 5. Прижимаем статью к листу без рамок и скруглений */
+  .landmark-article__media,
+  .landmark-article__body,
+  .card { border: 0 !important; border-radius: 0 !important; }
+  .landmark-article__media img { max-width: 100%; page-break-inside: avoid; }
+  .container { max-width: none; padding: 0; }
+
+  a { text-decoration: none !important; }
+  a[href]::after { content: ""; }
+}

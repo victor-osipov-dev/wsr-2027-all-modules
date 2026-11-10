@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64" role="img" aria-label="Администрация Оренбургской области">
+  <circle cx="30" cy="32" r="22" fill="#b4552d"/>
+  <path d="M18 42h24v4H18z" fill="#f6f3ec"/>
+  <path d="M22 24h16v16H22z" fill="#f6f3ec"/>
+  <path d="M26 26h3v12h-3zm6 0h3v12h-3zm6 0h3v12h-3z" fill="#b4552d"/>
+  <path d="M16 18h28v4H16z" fill="#f6f3ec"/>
+  <text x="62" y="28" font-family="Trebuchet MS, Verdana, sans-serif" font-size="12" font-weight="700" fill="#1e2a24">АДМИНИСТРАЦИЯ</text>
+  <text x="62" y="44" font-family="Trebuchet MS, Verdana, sans-serif" font-size="12" font-weight="700" fill="#b4552d">ОБЛАСТИ</text>
+</svg>

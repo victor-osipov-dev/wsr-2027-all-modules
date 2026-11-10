@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регистрация — Открой Оренбуржье</title>
+  <meta name="description" content="Регистрация на платформе «Открой Оренбуржье»: создайте аккаунт, чтобы добавлять достопримечательности Оренбургской области.">
+  <link rel="icon" href="media/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+      <img id="logo" src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+    </a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Открыть меню навигации">
+    <label class="nav-burger" for="nav-toggle"><span></span><span></span><span></span></label>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link" id="nav-login" href="login.html">Войти</a></li>
+        <li><a class="main-nav__link is-active" id="nav-register" href="register.html">Регистрация</a></li>
+        <li><a class="main-nav__link" id="nav-profile" href="profile.html">Личный кабинет</a></li>
+        <li><a class="main-nav__link" id="nav-catalog" href="index.html#popular-section">Популярные достопримечательности</a></li>
+        <li><a class="main-nav__link" id="go-to-search" href="index.html#search-section">Поиск достопримечательностей</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page__main" id="main">
+  <div class="container section">
+    <nav aria-label="Хлебные крошки">
+      <ol class="breadcrumbs">
+        <li><a href="index.html">Главная</a></li>
+        <li>Регистрация</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="container" style="padding-bottom:3rem;">
+    <div class="auth">
+      <aside class="auth__aside">
+        <h2>Присоединяйтесь</h2>
+        <p>Создайте аккаунт, чтобы делиться достопримечательностями Оренбуржья с путешественниками и краеведами.</p>
+        <ul>
+          <li>Добавляйте места и фотографии</li>
+          <li>Проходите модерацию публикаций</li>
+          <li>Получайте отзывы сообщества</li>
+        </ul>
+      </aside>
+
+      <section class="auth__form" aria-labelledby="register-title">
+        <h1 class="section-title" id="register-title" style="font-size:1.8rem;">Регистрация</h1>
+        <p class="section-subtitle">Поля со звёздочкой обязательны для заполнения.</p>
+
+        <form action="login.html" method="post" novalidate>
+          <div class="form-field">
+            <label class="form-label" for="reg-email">E-mail <span class="required" aria-hidden="true">*</span></label>
+            <input class="form-control" type="email" id="reg-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            <span class="form-message form-message--empty">Заполните обязательное поле «E-mail».</span>
+            <span class="form-message form-message--error">Некорректный e-mail. Укажите адрес в формате name@domen.ru.</span>
+            <span class="form-message form-message--ok">E-mail указан корректно.</span>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="reg-lastname">Фамилия <span class="required" aria-hidden="true">*</span></label>
+            <input class="form-control" type="text" id="reg-lastname" name="lastname" placeholder="Иванов" autocomplete="family-name" minlength="2" required>
+            <span class="form-message form-message--empty">Заполните обязательное поле «Фамилия».</span>
+            <span class="form-message form-message--error">Фамилия слишком короткая — минимум 2 символа.</span>
+            <span class="form-message form-message--ok">Фамилия указана корректно.</span>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="reg-firstname">Имя <span class="required" aria-hidden="true">*</span></label>
+            <input class="form-control" type="text" id="reg-firstname" name="firstname" placeholder="Иван" autocomplete="given-name" minlength="2" required>
+            <span class="form-message form-message--empty">Заполните обязательное поле «Имя».</span>
+            <span class="form-message form-message--error">Имя слишком короткое — минимум 2 символа.</span>
+            <span class="form-message form-message--ok">Имя указано корректно.</span>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="reg-password">Пароль <span class="required" aria-hidden="true">*</span></label>
+            <input class="form-control" type="password" id="reg-password" name="password" placeholder="Минимум 6 символов"
+                   autocomplete="new-password" minlength="6" pattern="(?=.*[0-9])(?=.*[A-Za-zА-Яа-яЁё]).{6,}"
+                   title="Минимум 6 символов, хотя бы одна буква и одна цифра" required>
+            <span class="form-message form-message--empty">Заполните обязательное поле «Пароль».</span>
+            <span class="form-message form-message--error">Пароль слишком простой: нужно не менее 6 символов, буквы и цифры.</span>
+            <span class="form-message form-message--ok">Пароль надёжный.</span>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="reg-password-confirm">Повтор пароля <span class="required" aria-hidden="true">*</span></label>
+            <input class="form-control" type="password" id="reg-password-confirm" name="password_confirm" placeholder="Повторите пароль"
+                   autocomplete="new-password" minlength="6" required>
+            <span class="form-message form-message--empty">Повторите пароль — поле обязательно для заполнения.</span>
+            <span class="form-message form-message--error">Пароли не совпадают.</span>
+            <span class="form-message form-message--ok">Пароли совпадают.</span>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="reg-birthdate">Дата рождения <span class="text-muted">(необязательно)</span></label>
+            <input class="form-control" type="date" id="reg-birthdate" name="birthdate" autocomplete="bday">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="reg-phone">Номер телефона <span class="text-muted">(необязательно)</span></label>
+            <input class="form-control" type="tel" id="reg-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+          </div>
+
+          <div class="form-field">
+            <div class="form-check">
+              <input type="checkbox" id="reg-consent" name="consent" required>
+              <label for="reg-consent">Согласен на обработку персональных данных <span class="required" aria-hidden="true">*</span></label>
+            </div>
+            <span class="form-message form-message--error">Необходимо согласие на обработку персональных данных.</span>
+          </div>
+
+          <button class="btn btn--block" type="submit">Зарегистрироваться</button>
+        </form>
+
+        <p class="auth__alt">Уже есть аккаунт? <a href="login.html">Войти</a></p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+          <img src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+        </a>
+        <p>Веб-платформа для сбора и представления информации о достопримечательностях Оренбургской области.</p>
+      </div>
+      <nav aria-label="Навигация по сайту">
+        <h2 class="site-footer__title">Навигация по сайту</h2>
+        <a class="site-footer__link" href="index.html">Главная</a>
+        <a class="site-footer__link" href="login.html">Вход</a>
+        <a class="site-footer__link" href="register.html">Регистрация</a>
+        <a class="site-footer__link" href="profile.html">Личный кабинет</a>
+        <a class="site-footer__link" href="landmark.html">Страница достопримечательности</a>
+        <a class="site-footer__link" href="admin.html">Административная панель</a>
+        <a class="site-footer__link" href="index_dark.html">Главная - тёмная тема</a>
+      </nav>
+      <div>
+        <h2 class="site-footer__title">Контакты</h2>
+        <p>Оренбургская область, г. Оренбург</p>
+        <p><a href="tel:+78007654321">8-800-765-43-21</a><br>
+           <a href="mailto:info@orenlandmarks.ru">info@orenlandmarks.ru</a></p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 «Открой Оренбуржье». Все права защищены.</span>
+      <span>Региональный чемпионат «Профессионалы», компетенция «Веб-технологии».</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

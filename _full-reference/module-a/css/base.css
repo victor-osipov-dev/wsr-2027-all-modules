@@ -1,0 +1,339 @@
+@charset "UTF-8";
+/* ==========================================================================
+   base.css — «Открой Оренбуржье»
+   Базовый слой: подключение шрифтов, дизайн-токены (CSS-переменные),
+   сброс стилей, типографика, формы и кнопки.
+   Подключается первым на всех страницах.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Подключение предоставленных шрифтов (@font-face)
+   Шрифты лежат в media/fonts и подключаются локально (без внешних CDN).
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Site Sans";
+  src: url("../media/fonts/site-sans.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Site Sans";
+  src: url("../media/fonts/site-sans-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Site Serif";
+  src: url("../media/fonts/site-serif.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Site Serif";
+  src: url("../media/fonts/site-serif-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Site Serif";
+  src: url("../media/fonts/site-serif-italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   2. Дизайн-токены. Светлая тема по умолчанию
+   -------------------------------------------------------------------------- */
+:root {
+  /* Цвета: фирменная палитра (см. media/colors.png) */
+  --color-primary: #1f6b4a;
+  --color-primary-dark: #14503a;
+  --color-primary-light: #3e8f6a;
+  --color-accent: #c8a24b;
+  --color-accent-dark: #a9822f;
+  --color-secondary: #b4552d;
+
+  /* Цвета: фоны и текст */
+  --color-bg: #f6f3ec;
+  --color-surface: #ffffff;
+  --color-surface-alt: #efeadd;
+  --color-text: #1e2a24;
+  --color-muted: #5e6b63;
+  --color-border: #dfd9cc;
+
+  /* Цвета: состояния */
+  --color-success: #2e7d32;
+  --color-danger: #c0392b;
+  --color-info: #2a6fa8;
+
+  /* Типографика */
+  --font-sans: "Site Sans", "Trebuchet MS", Verdana, Tahoma, sans-serif;
+  --font-serif: "Site Serif", Georgia, "Times New Roman", serif;
+  --text-base: 16px;
+  --line-height: 1.65;
+
+  /* Скругления */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Тени */
+  --shadow-sm: 0 1px 3px rgba(20, 40, 30, .10);
+  --shadow-md: 0 6px 18px rgba(20, 40, 30, .12);
+  --shadow-lg: 0 16px 40px rgba(20, 40, 30, .18);
+
+  /* Прочее */
+  --container: 1200px;
+  --header-height: 76px;
+  --transition: .25s ease;
+}
+
+/* --------------------------------------------------------------------------
+   3. Тёмная тема.
+   Активируется классом .theme-dark на <html> (страница index_dark.html),
+   а также переключателем темы через CSS-селектор :has() (без JavaScript).
+   -------------------------------------------------------------------------- */
+:root.theme-dark,
+html:has(#theme-toggle:checked) {
+  --color-primary: #4fb585;
+  --color-primary-dark: #2f7d5c;
+  --color-primary-light: #7ccfa7;
+  --color-accent: #e0be6a;
+  --color-accent-dark: #c8a24b;
+  --color-secondary: #e08a5f;
+
+  --color-bg: #101713;
+  --color-surface: #1a231e;
+  --color-surface-alt: #222e27;
+  --color-text: #e7efe9;
+  --color-muted: #9db0a5;
+  --color-border: #2c3a32;
+
+  --color-success: #6bc26f;
+  --color-danger: #ef7a6c;
+  --color-info: #6fb0e0;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, .55);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, .65);
+}
+
+/* --------------------------------------------------------------------------
+   4. Сброс и базовые стили
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover,
+a:focus-visible { color: var(--color-accent-dark); text-decoration: underline; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* --------------------------------------------------------------------------
+   5. Типографика
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin: 0 0 .5em;
+}
+h1 { font-size: clamp(1.9rem, 1.4rem + 2vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem); }
+h3 { font-size: clamp(1.2rem, 1.05rem + .6vw, 1.5rem); }
+h4 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; }
+
+.section-title { margin-bottom: .25em; }
+.section-subtitle { color: var(--color-muted); margin-bottom: 2rem; }
+
+.text-muted { color: var(--color-muted); }
+.text-accent { color: var(--color-accent-dark); }
+
+/* --------------------------------------------------------------------------
+   6. Формы: поля, метки, подсказки, состояния валидации
+   -------------------------------------------------------------------------- */
+.form-field { margin-bottom: 1.15rem; }
+
+.form-label {
+  display: block;
+  margin-bottom: .4rem;
+  font-weight: 700;
+  font-size: .92rem;
+}
+.form-label .required { color: var(--color-danger); }
+
+.form-control {
+  width: 100%;
+  padding: .75rem .9rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.form-control::placeholder { color: var(--color-muted); opacity: .8; }
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(31, 107, 74, .18);
+}
+textarea.form-control { min-height: 130px; resize: vertical; }
+select.form-control { cursor: pointer; }
+
+.form-hint {
+  display: block;
+  margin-top: .35rem;
+  font-size: .82rem;
+  color: var(--color-muted);
+}
+
+/* Сообщения валидации (свёрстаны как примеры отображения).
+   Переключаются CSS-псевдоклассами :valid / :invalid / :placeholder-shown,
+   поэтому работают без JavaScript. */
+.form-message { display: none; margin-top: .35rem; font-size: .85rem; }
+.form-message::before { margin-right: .35rem; font-weight: 700; }
+
+.form-control:placeholder-shown ~ .form-message--empty,
+.form-control:invalid:not(:placeholder-shown) ~ .form-message--error,
+.form-control:valid:not(:placeholder-shown) ~ .form-message--ok { display: block; }
+
+.form-control:placeholder-shown ~ .form-message--empty { color: var(--color-muted); }
+.form-control:invalid:not(:placeholder-shown) ~ .form-message--error { color: var(--color-danger); }
+.form-control:valid:not(:placeholder-shown) ~ .form-message--ok { color: var(--color-success); }
+
+.form-control:placeholder-shown ~ .form-message--empty::before { content: "•"; }
+.form-control:invalid:not(:placeholder-shown) ~ .form-message--error::before { content: "✕"; }
+.form-control:valid:not(:placeholder-shown) ~ .form-message--ok::before { content: "✓"; }
+
+/* Сообщение о неотмеченном обязательном чекбоксе (согласие) */
+.form-field:has(.form-check input[type="checkbox"]:not(:checked)) .form-message--error { display: block; color: var(--color-danger); }
+
+/* Поле с ошибкой подсвечивается */
+.form-control:required:invalid:not(:placeholder-shown):not(select) {
+  border-color: var(--color-danger);
+  background-color: rgba(192, 57, 43, .06);
+}
+.form-control:required:valid:not(:placeholder-shown) {
+  border-color: var(--color-success);
+}
+
+/* Чекбоксы */
+.form-check { display: flex; gap: .6rem; align-items: flex-start; }
+.form-check input { width: 1.15rem; height: 1.15rem; margin-top: .2rem; accent-color: var(--color-primary); flex: none; }
+.form-check label { font-size: .92rem; }
+
+/* --------------------------------------------------------------------------
+   7. Кнопки
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem 1.5rem;
+  font-weight: 700;
+  font-size: .95rem;
+  line-height: 1;
+  color: #fff;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform var(--transition), background-color var(--transition),
+              border-color var(--transition), box-shadow var(--transition);
+}
+.btn:hover,
+.btn:focus-visible {
+  color: #fff;
+  text-decoration: none;
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.btn:active { transform: translateY(0); }
+
+.btn--accent { background-color: var(--color-accent); border-color: var(--color-accent); color: #241c05; }
+.btn--accent:hover { background-color: var(--color-accent-dark); border-color: var(--color-accent-dark); color: #241c05; }
+
+.btn--ghost { background-color: transparent; color: var(--color-primary); }
+.btn--ghost:hover { background-color: var(--color-primary); color: #fff; }
+
+.btn--block { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   8. Утилиты и доступность
+   -------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Элемент виден только при печати (см. print.css) */
+.print-only { display: none; }
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -60px;
+  z-index: 100;
+  padding: .6rem 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  transition: top var(--transition);
+}
+.skip-link:focus { top: 0; color: #fff; }
+
+:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}

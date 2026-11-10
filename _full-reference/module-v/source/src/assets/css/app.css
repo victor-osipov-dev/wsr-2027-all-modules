@@ -1,0 +1,911 @@
+/* ==========================================================================
+   Кухни мира — собственные стили приложения (Модуль В).
+   Здесь переопределяется тема Bootstrap-совместимой подборки и описываются
+   компоненты интерфейса: шапка, подвал, карточки рецептов, конструктор,
+   уведомления и модальные окна.
+   ========================================================================== */
+
+/* ============================================================
+   1. Дизайн-токены и базовые стили
+   ============================================================ */
+:root {
+  --brand: #e8590c;
+  --brand-dark: #c2410c;
+  --brand-light: #fff4ec;
+  --accent: #2b8a3e;
+  --ink: #26221d;
+  --ink-soft: #6b645c;
+  --line: #e7e1d8;
+  --surface: #ffffff;
+  --surface-alt: #fbf8f4;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 2px 8px rgba(38, 34, 29, 0.06);
+  --shadow-md: 0 12px 28px rgba(38, 34, 29, 0.12);
+
+  --bs-primary: var(--brand);
+  --bs-primary-rgb: 232, 89, 12;
+  --bs-secondary: #57514a;
+  --bs-danger: #c92a2a;
+  --bs-body-color: var(--ink);
+  --bs-body-bg: var(--surface-alt);
+  --bs-border-color: var(--line);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'PT Sans', system-ui, -apple-system, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background-color: var(--surface-alt);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--brand);
+}
+a:hover {
+  color: var(--brand-dark);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+/* ============================================================
+   2. Каркас страницы: «липкий» подвал
+   ============================================================ */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.app-main {
+  flex: 1 0 auto;
+  padding: 1.75rem 0 3rem;
+}
+
+/* ============================================================
+   3. Шапка и навигация
+   ============================================================ */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+.navbar-brand {
+  color: var(--ink);
+  gap: 0.65rem;
+}
+.navbar-brand:hover {
+  color: var(--ink);
+}
+.logo-mark {
+  display: inline-flex;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.brand-text strong {
+  font-size: 1.15rem;
+  letter-spacing: 0.2px;
+}
+.brand-text small {
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.nav-link {
+  color: var(--ink-soft);
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: var(--brand);
+  background: var(--brand-light);
+}
+.nav-link.active {
+  color: var(--brand);
+  background: var(--brand-light);
+}
+.navbar-nav-auth {
+  margin-left: auto;
+}
+@media (max-width: 991.98px) {
+  .navbar-nav-auth {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--line);
+  }
+}
+.nav-cta {
+  margin-left: 0.5rem;
+}
+.nav-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: default;
+}
+.user-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ============================================================
+   4. Подвал
+   ============================================================ */
+.app-footer {
+  flex-shrink: 0;
+  padding: 2.25rem 0 1.25rem;
+  background: #2b2620;
+  color: #f4efe8;
+}
+.footer-grid {
+  gap: 1.5rem 0;
+}
+.footer-brand {
+  font-size: 1.2rem;
+  color: #fff;
+}
+.footer-text {
+  color: #cbc2b6;
+  font-size: 0.92rem;
+  margin-top: 0.5rem;
+}
+.footer-title {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f0a878;
+  margin-bottom: 0.75rem;
+}
+.footer-nav,
+.footer-contacts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-nav li,
+.footer-contacts li {
+  margin-bottom: 0.35rem;
+}
+.footer-nav a,
+.footer-contacts a {
+  color: #e7ded2;
+  text-decoration: none;
+}
+.footer-nav a:hover,
+.footer-contacts a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.82rem;
+  color: #b8ac9d;
+}
+
+/* ============================================================
+   5. Общие блоки страниц
+   ============================================================ */
+.page-container {
+  padding-top: 0.5rem;
+}
+.page-head {
+  margin-bottom: 1.5rem;
+}
+.page-head--row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+.page-subtitle {
+  color: var(--ink-soft);
+  margin: 0.35rem 0 0;
+}
+.section-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+.panel-head {
+  margin-bottom: 1.25rem;
+}
+.panel-title {
+  font-size: 1.4rem;
+}
+.panel-subtitle {
+  color: var(--ink-soft);
+  margin: 0;
+}
+.panel-title-sm {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+.sticky-side {
+  position: sticky;
+  top: 5.5rem;
+}
+
+.badge.bg-prim {
+  background: var(--brand);
+  color: #fff;
+}
+.badge.bg-soft {
+  background: var(--brand-light);
+  color: var(--brand-dark);
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+.breadcrumbs a {
+  text-decoration: none;
+}
+
+/* ============================================================
+   6. Карточка рецепта
+   ============================================================ */
+.recipe-grid > [class*='col-'] {
+  display: flex;
+}
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.recipe-card__media {
+  display: block;
+  height: 190px;
+  background: linear-gradient(135deg, #fdece0, #f8ddc9);
+}
+.recipe-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.recipe-card__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 3rem;
+}
+.recipe-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 1.1rem 1.2rem;
+  flex: 1 1 auto;
+}
+.recipe-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.recipe-card__title {
+  font-size: 1.15rem;
+  margin: 0;
+}
+.recipe-card__title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.recipe-card__title a:hover {
+  color: var(--brand);
+}
+.recipe-card__text {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin: 0;
+  flex: 1 1 auto;
+}
+.recipe-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+}
+.recipe-card__actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+/* ============================================================
+   7. Боковая панель
+   ============================================================ */
+.panel-side {
+  padding: 1.2rem;
+}
+.side-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.side-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+.side-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--brand);
+  display: inline-block;
+}
+.side-note {
+  margin: 0.9rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   8. Формы авторизации
+   ============================================================ */
+.auth-panel {
+  padding: 2rem;
+}
+.form-row-between {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.link-muted {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.link-muted:hover {
+  color: var(--brand);
+}
+.auth-hint {
+  margin: 1.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+.form-check-group {
+  margin: 1rem 0 1.5rem;
+}
+
+/* ============================================================
+   9. Просмотр рецепта
+   ============================================================ */
+.recipe-view__media {
+  height: 340px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(135deg, #fdece0, #f8ddc9);
+  border: 1px solid var(--line);
+}
+.recipe-view__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.recipe-view__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 5rem;
+}
+.recipe-view__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+}
+.stat__label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+.stat__value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--brand-dark);
+}
+.recipe-view__category,
+.recipe-view__date {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin: 0.25rem 0;
+}
+.recipe-view__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.recipe-view__section {
+  padding: 1.4rem 1.5rem;
+}
+.recipe-view__description {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ingredient-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+.ingredient-row:last-child {
+  border-bottom: none;
+}
+.ingredient-row__qty {
+  color: var(--brand-dark);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.steps-list {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+.step-row {
+  margin-bottom: 1rem;
+}
+.step-row p {
+  margin: 0.25rem 0 0;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   10. Форма рецепта
+   ============================================================ */
+.ingredient-add {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+.ingredient-add .form-group {
+  flex: 1 1 auto;
+  margin-bottom: 0.5rem;
+}
+.ingredient-chips {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ingredient-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+.ingredient-chip__title {
+  flex: 1 1 auto;
+  font-weight: 500;
+}
+.ingredient-chip__qty {
+  width: 110px;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.ingredient-chip__remove {
+  border: none;
+  background: transparent;
+  color: var(--bs-danger);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.image-drop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 210px;
+  margin-bottom: 1rem;
+  border: 2px dashed var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  overflow: hidden;
+}
+.image-drop__preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.image-drop__placeholder {
+  font-size: 3rem;
+  opacity: 0.6;
+}
+
+/* ============================================================
+   11. Конструктор рецептов
+   ============================================================ */
+.constructor__zone {
+  min-height: 260px;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.constructor__zone--over {
+  border-color: var(--brand);
+  background: var(--brand-light);
+}
+.constructor__zone--target {
+  border-style: dashed;
+}
+.zone-hint {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: -0.5rem;
+}
+.ingredient-pool {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.ingredient-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: grab;
+  font-size: 0.9rem;
+  user-select: none;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.ingredient-pill:hover {
+  background: var(--brand-light);
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+.ingredient-pill:active {
+  cursor: grabbing;
+}
+.ingredient-pill__unit {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+.drop-area {
+  min-height: 170px;
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  border: 2px dashed var(--line);
+}
+.drop-area--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.drop-area__placeholder {
+  color: var(--ink-soft);
+  margin: 0;
+  text-align: center;
+}
+.ingredient-selected {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.selected-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.5rem 0.4rem 0.75rem;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 999px;
+  cursor: grab;
+  font-size: 0.9rem;
+  user-select: none;
+}
+.selected-chip__remove {
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.howto-list {
+  padding-left: 1.1rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+.howto-list li {
+  margin-bottom: 0.5rem;
+}
+.constructor__results {
+  margin-top: 1rem;
+}
+
+/* ============================================================
+   12. Уведомления (WebSocket)
+   ============================================================ */
+.notification-host {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1080;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: min(360px, calc(100vw - 2.5rem));
+}
+.toast-card {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.85rem 2.2rem 0.85rem 1rem;
+  border-radius: 12px;
+  background: #fff;
+  border-left: 5px solid var(--brand);
+  box-shadow: var(--shadow-md);
+}
+.toast-success {
+  border-left-color: var(--accent);
+}
+.toast-danger {
+  border-left-color: var(--bs-danger);
+}
+.toast-title {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
+}
+.toast-body {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.toast-link {
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: var(--brand-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.88rem;
+}
+.toast-close {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.45rem;
+  border: none;
+  background: transparent;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.toast-enter-active,
+.toast-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+/* ============================================================
+   13. Модальное окно подтверждения
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(38, 34, 29, 0.5);
+}
+.modal-box {
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 1.5rem;
+}
+.modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.modal-heading {
+  font-size: 1.2rem;
+}
+.modal-x {
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+.modal-body-text {
+  margin: 0.75rem 0 1.5rem;
+  color: var(--ink-soft);
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+/* ============================================================
+   14. Загрузка и «пустые» состояния
+   ============================================================ */
+.loader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2.5rem 0;
+  color: var(--ink-soft);
+}
+.spinner {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 3px solid var(--brand-light);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+.empty-state__icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.empty-state__title {
+  font-size: 1.3rem;
+}
+.empty-state__text {
+  color: var(--ink-soft);
+  margin-bottom: 1.25rem;
+}
+
+/* ============================================================
+   15. Анимации переходов страниц
+   ============================================================ */
+.fade-page-enter-active,
+.fade-page-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-page-enter-from,
+.fade-page-leave-to {
+  opacity: 0;
+}
+
+/* ============================================================
+   16. Адаптивность
+   ============================================================ */
+@media (max-width: 767.98px) {
+  .page-title {
+    font-size: 1.55rem;
+  }
+  .sticky-side {
+    position: static;
+  }
+  .recipe-view__media {
+    height: 240px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+  }
+  .notification-host {
+    right: 0.75rem;
+    left: 0.75rem;
+    bottom: 0.75rem;
+  }
+}

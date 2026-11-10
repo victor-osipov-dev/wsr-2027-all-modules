@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Открой Оренбуржье — достопримечательности Оренбургской области</title>
+  <meta name="description" content="Открой Оренбуржье — веб-платформа о достопримечательностях Оренбургской области: природные объекты, музеи, памятники архитектуры и исторические места. Фотографии, координаты, отзывы путешественников.">
+  <meta name="keywords" content="Оренбуржье, достопримечательности, туризм, Оренбург, путешествия, музеи, природа">
+  <meta name="author" content="Открой Оренбуржье">
+  <meta property="og:title" content="Открой Оренбуржье">
+  <meta property="og:description" content="Платформа о достопримечательностях Оренбургской области.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="media/img/landmark-mountains.jpg">
+  <link rel="icon" href="media/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<!-- ======================= Шапка сайта ======================= -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+      <img id="logo" src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+    </a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Открыть меню навигации">
+    <label class="nav-burger" for="nav-toggle"><span></span><span></span><span></span></label>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link" id="nav-login" href="login.html">Войти</a></li>
+        <li><a class="main-nav__link" id="nav-register" href="register.html">Регистрация</a></li>
+        <li><a class="main-nav__link" id="nav-profile" href="profile.html">Личный кабинет</a></li>
+        <li><a class="main-nav__link" id="nav-catalog" href="#popular-section">Популярные достопримечательности</a></li>
+        <li><a class="main-nav__link" id="go-to-search" href="#search-section">Поиск достопримечательностей</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page__main" id="main">
+
+  <!-- ======================= Главный экран ======================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <span class="hero__eyebrow">Оренбургская область</span>
+        <h1 class="hero__title">Открой <span class="hero__title-accent">Оренбуржье</span></h1>
+        <p class="hero__text">Платформа для сбора и представления информации о достопримечательностях Оренбургской области. Создана для туристов и путешественников от 16 лет и старше, а также для краеведов Оренбуржья. Делитесь любимыми местами, находите новые маршруты и вдохновляйте других путешественников.</p>
+        <div class="hero__actions">
+          <a class="btn" href="#search-section">Найти достопримечательность</a>
+          <a class="btn btn--ghost" href="#popular-section">Смотреть популярные</a>
+        </div>
+      </div>
+    </div>
+    <span class="hero__scroll" aria-hidden="true"></span>
+  </section>
+
+  <!-- ======================= Быстрый поиск по категориям ======================= -->
+  <section class="section" id="search-section" aria-labelledby="search-title">
+    <div class="container">
+      <h2 class="section-title" id="search-title">Быстрый поиск по категориям</h2>
+      <p class="section-subtitle">Начните вводить название категории или достопримечательности — подсказки появятся автоматически.</p>
+      <form class="search-bar" action="#popular-section" method="get" role="search">
+        <label class="visually-hidden" for="search-input">Поиск достопримечательностей</label>
+        <input class="form-control" type="search" id="search-input" name="q" list="search-suggestions"
+               placeholder="Например: Памятники архитектуры, Природные объекты, Музеи"
+               aria-describedby="search-hint">
+        <datalist id="search-suggestions">
+          <option value="Памятники архитектуры"></option>
+          <option value="Природные объекты"></option>
+          <option value="Музеи"></option>
+          <option value="Исторические места"></option>
+          <option value="Религиозные сооружения"></option>
+        </datalist>
+        <a class="btn" id="search-button" href="#popular-section">Найти</a>
+      </form>
+      <span class="form-hint" id="search-hint">Доступные категории: памятники архитектуры, природные объекты, музеи, исторические места.</span>
+    </div>
+  </section>
+
+  <!-- ======================= Преимущества платформы ======================= -->
+  <section class="section section--alt" id="advantages-section" aria-labelledby="advantages-title">
+    <div class="container">
+      <h2 class="section-title" id="advantages-title">Преимущества платформы</h2>
+      <p class="section-subtitle">Всё, что нужно для удобного путешествия по Оренбуржью.</p>
+      <ul class="grid grid--4">
+        <li class="advantage">
+          <span class="advantage__icon"><img src="media/img/icon-upload.svg" alt="" width="30" height="30"></span>
+          <h3 class="advantage__title">Удобная загрузка фотографий</h3>
+          <p class="advantage__text">Загружайте снимки достопримечательностей в пару кликов — изображения автоматически оптимизируются.</p>
+        </li>
+        <li class="advantage">
+          <span class="advantage__icon"><img src="media/img/icon-map.svg" alt="" width="30" height="30"></span>
+          <h3 class="advantage__title">Точные координаты на карте</h3>
+          <p class="advantage__text">Каждая достопримечательность отмечена на карте, чтобы вы не сбились с маршрута.</p>
+        </li>
+        <li class="advantage">
+          <span class="advantage__icon"><img src="media/img/icon-description.svg" alt="" width="30" height="30"></span>
+          <h3 class="advantage__title">Подробные описания от местных жителей</h3>
+          <p class="advantage__text">Краеведы и жители области делятся историями и деталями, которых нет в путеводителях.</p>
+        </li>
+        <li class="advantage">
+          <span class="advantage__icon"><img src="media/img/icon-reviews.svg" alt="" width="30" height="30"></span>
+          <h3 class="advantage__title">Актуальная информация и отзывы путешественников</h3>
+          <p class="advantage__text">Свежие отзывы и оценки помогают выбрать лучшее место для поездки.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================= Целевая аудитория ======================= -->
+  <section class="section" id="audience-section" aria-labelledby="audience-title">
+    <div class="container">
+      <h2 class="section-title" id="audience-title">Для кого создана платформа</h2>
+      <p class="section-subtitle">«Открой Оренбуржье» будет полезна разным посетителям от 16 лет и старше.</p>
+      <ul class="grid grid--3">
+        <li class="advantage">
+          <h3 class="advantage__title">Туристам и путешественникам 16+</h3>
+          <p class="advantage__text">Готовые маршруты, фотографии и отзывы помогают спланировать поездку по области.</p>
+        </li>
+        <li class="advantage">
+          <h3 class="advantage__title">Краеведам Оренбуржья</h3>
+          <p class="advantage__text">Добавляйте достоверные сведения о памятниках, музеях и природных объектах.</p>
+        </li>
+        <li class="advantage">
+          <h3 class="advantage__title">Семьям с детьми</h3>
+          <p class="advantage__text">Понятные описания и подсказки по инфраструктуре для спокойного семейного отдыха.</p>
+        </li>
+        <li class="advantage">
+          <h3 class="advantage__title">Школьникам и студентам</h3>
+          <p class="advantage__text">Материал для докладов, экскурсий и изучения истории родного края.</p>
+        </li>
+        <li class="advantage">
+          <h3 class="advantage__title">Фотографам и блогерам</h3>
+          <p class="advantage__text">Идеи для съёмок и вдохновляющие виды Оренбургской области в любое время года.</p>
+        </li>
+        <li class="advantage">
+          <h3 class="advantage__title">Местным жителям</h3>
+          <p class="advantage__text">Возможность рассказать о любимых местах и поддержать туризм в регионе.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================= Популярные достопримечательности ======================= -->
+  <section class="section" id="popular-section" aria-labelledby="popular-title">
+    <div class="container">
+      <h2 class="section-title" id="popular-title">Популярные достопримечательности</h2>
+      <p class="section-subtitle">Пять мест, которые чаще всего выбирают путешественники.</p>
+      <ul class="grid grid--5">
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media">
+              <img src="media/img/landmark-razval.jpg" alt="Соль-Илецкое озеро Развал" loading="lazy">
+            </div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Природный объект</span>
+              <h3 class="landmark-card__title">Озеро Развал</h3>
+              <p class="landmark-card__author">Автор: Ирина Соколова</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.8 (124)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media">
+              <img src="media/img/landmark-bor.jpg" alt="Национальный парк Бузулукский бор" loading="lazy">
+            </div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Природный объект</span>
+              <h3 class="landmark-card__title">Бузулукский бор</h3>
+              <p class="landmark-card__author">Автор: Пётр Кузнецов</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4.9 (208)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media">
+              <img src="media/img/landmark-karavan-saray.jpg" alt="Караван-Сарай в Оренбурге" loading="lazy">
+            </div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Памятник архитектуры</span>
+              <h3 class="landmark-card__title">Караван-Сарай</h3>
+              <p class="landmark-card__author">Автор: Алия Хасанова</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.7 (96)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media">
+              <img src="media/img/landmark-museum.jpg" alt="Оренбургский музей изобразительных искусств" loading="lazy">
+            </div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Музей</span>
+              <h3 class="landmark-card__title">Музей искусств</h3>
+              <p class="landmark-card__author">Автор: Сергей Дорохов</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.6 (73)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media">
+              <img src="media/img/landmark-bridge.jpg" alt="Пешеходный мост через реку Урал" loading="lazy">
+            </div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Историческое место</span>
+              <h3 class="landmark-card__title">Мост через Урал</h3>
+              <p class="landmark-card__author">Автор: Мария Волкова</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.5 (61)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================= Слайдер «Красоты Оренбуржья» ======================= -->
+  <section class="section section--alt" id="slider-section" aria-labelledby="slider-title">
+    <div class="container">
+      <h2 class="section-title" id="slider-title">Красоты Оренбуржья</h2>
+      <p class="section-subtitle">Слайдер переключается стрелками или точками — только средствами CSS.</p>
+
+      <div class="slider__stage">
+        <input class="slider__radio" type="radio" name="hero-slides" id="slide-1" checked>
+        <input class="slider__radio" type="radio" name="hero-slides" id="slide-2">
+        <input class="slider__radio" type="radio" name="hero-slides" id="slide-3">
+        <input class="slider__radio" type="radio" name="hero-slides" id="slide-4">
+
+        <div class="slider__viewport">
+          <div class="slider__track">
+            <article class="slider__slide">
+              <img src="media/img/landmark-mountains.jpg" alt="Губерлинские горы">
+              <div class="slider__caption">
+                <h3>Губерлинские горы</h3>
+                <p>Живописные скальные холмы с ковыльными степями и широкими панорамами Оренбуржья.</p>
+              </div>
+            </article>
+            <article class="slider__slide">
+              <img src="media/img/landmark-reservoir.jpg" alt="Ириклинское водохранилище" loading="lazy">
+              <div class="slider__caption">
+                <h3>Ириклинское водохранилище</h3>
+                <p>Одно из крупнейших водохранилищ Урала: чистая вода, острова и отличная рыбалка.</p>
+              </div>
+            </article>
+            <article class="slider__slide">
+              <img src="media/img/landmark-steppe.jpg" alt="Оренбургская степь" loading="lazy">
+              <div class="slider__caption">
+                <h3>Оренбургская степь</h3>
+                <p>Весной степь превращается в ковёр из диких тюльпанов и ковыля до самого горизонта.</p>
+              </div>
+            </article>
+            <article class="slider__slide">
+              <img src="media/img/landmark-razval.jpg" alt="Озеро Развал" loading="lazy">
+              <div class="slider__caption">
+                <h3>Озеро Развал</h3>
+                <p>Солёное озеро в Соль-Илецке с целебной водой и уникальным розовым оттенком.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Переключение стрелками (своя пара кнопок для каждого слайда) -->
+        <div class="slider__controls">
+          <div class="slider__nav slider__nav--1">
+            <label class="slider__arrow" for="slide-4" title="Назад">&#8249;</label>
+            <label class="slider__arrow" for="slide-2" title="Вперёд">&#8250;</label>
+          </div>
+          <div class="slider__nav slider__nav--2">
+            <label class="slider__arrow" for="slide-1" title="Назад">&#8249;</label>
+            <label class="slider__arrow" for="slide-3" title="Вперёд">&#8250;</label>
+          </div>
+          <div class="slider__nav slider__nav--3">
+            <label class="slider__arrow" for="slide-2" title="Назад">&#8249;</label>
+            <label class="slider__arrow" for="slide-4" title="Вперёд">&#8250;</label>
+          </div>
+          <div class="slider__nav slider__nav--4">
+            <label class="slider__arrow" for="slide-3" title="Назад">&#8249;</label>
+            <label class="slider__arrow" for="slide-1" title="Вперёд">&#8250;</label>
+          </div>
+        </div>
+
+        <!-- Индикаторы текущего слайда -->
+        <div class="slider__indicators" id="slider-indicators">
+          <label class="slider__dot" for="slide-1" title="Слайд 1"></label>
+          <label class="slider__dot" for="slide-2" title="Слайд 2"></label>
+          <label class="slider__dot" for="slide-3" title="Слайд 3"></label>
+          <label class="slider__dot" for="slide-4" title="Слайд 4"></label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= Наши партнёры ======================= -->
+  <section class="section" id="partners-section" aria-labelledby="partners-title">
+    <div class="container">
+      <h2 class="section-title" id="partners-title">Наши партнёры</h2>
+      <p class="section-subtitle">Проект поддерживают музеи, заповедники и администрации области.</p>
+      <div class="partners">
+        <img src="media/img/partner-museum.svg" alt="Оренбургский краеведческий музей" height="54">
+        <img src="media/img/partner-reserve.svg" alt="Заповедник «Оренбургский»" height="54">
+        <img src="media/img/partner-admin.svg" alt="Администрация Оренбургской области" height="54">
+        <img src="media/img/partner-resort.svg" alt="Курорт «Соль-Илецк»" height="54">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= Подвал сайта ======================= -->
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+          <img src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+        </a>
+        <p>Веб-платформа для сбора и представления информации о достопримечательностях Оренбургской области.</p>
+      </div>
+      <nav aria-label="Навигация по сайту">
+        <h2 class="site-footer__title">Навигация по сайту</h2>
+        <a class="site-footer__link" href="index.html">Главная</a>
+        <a class="site-footer__link" href="login.html">Вход</a>
+        <a class="site-footer__link" href="register.html">Регистрация</a>
+        <a class="site-footer__link" href="profile.html">Личный кабинет</a>
+        <a class="site-footer__link" href="landmark.html">Страница достопримечательности</a>
+        <a class="site-footer__link" href="admin.html">Административная панель</a>
+        <a class="site-footer__link" href="index_dark.html">Главная - тёмная тема</a>
+      </nav>
+      <div>
+        <h2 class="site-footer__title">Контакты</h2>
+        <p>Оренбургская область, г. Оренбург</p>
+        <p><a href="tel:+78007654321">8-800-765-43-21</a><br>
+           <a href="mailto:info@orenlandmarks.ru">info@orenlandmarks.ru</a></p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 «Открой Оренбуржье». Все права защищены.</span>
+      <span>Региональный чемпионат «Профессионалы», компетенция «Веб-технологии».</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

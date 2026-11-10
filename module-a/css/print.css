@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* print.css — печать страницы достопримечательности: только название, ч/б фото и «Добро пожаловать!». */
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+    }
+    header,
+    footer,
+    nav,
+    .correction,
+    .comments,
+    .mut,
+    .btn {
+        display: none !important;
+    }
+    .print-only {
+        display: block !important;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+    img {
+        filter: grayscale(100%) !important;
+    }
+    .card,
+    img {
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+}

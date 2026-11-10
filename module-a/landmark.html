@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Караван-Сарай — достопримечательность</title>
+        <link rel="icon" type="image/png" href="media/favicon.png" />
+        <link rel="stylesheet" href="css/site.css" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+    </head>
+    <body>
+        <header>
+            <div class="wrap bar">
+                <a href="index.html" aria-label="На главную"
+                    ><img id="logo" src="media/logo.png" alt="Логотип «Открой Оренбуржье»"
+                /></a>
+                <input type="checkbox" id="burger" />
+                <label class="burger" for="burger" aria-label="Меню"><span></span><span></span><span></span></label>
+                <nav id="main-nav" aria-label="Основное меню">
+                    <ul>
+                        <li><a id="nav-login" href="login.html">Войти</a></li>
+                        <li><a id="nav-register" href="register.html">Регистрация</a></li>
+                        <li><a id="nav-profile" href="profile.html">Личный кабинет</a></li>
+                        <li>
+                            <a id="nav-catalog" href="index.html#popular-section">Популярные достопримечательности</a>
+                        </li>
+                        <li><a id="go-to-search" href="index.html#search-section">Поиск достопримечательностей</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <div class="wrap">
+                    <h1>Караван-Сарай</h1>
+                    <p class="print-only">Добро пожаловать!</p>
+                    <p class="mut"><span class="badge">Памятник архитектуры</span> Опубликовано: 12.03.2026</p>
+                    <div class="card"><img src="media/img/landmark-karavan-saray.jpg" alt="Караван-Сарай" /></div>
+                    <h2>Описание</h2>
+                    <p>
+                        Караван-Сарай — историко-архитектурный комплекс, построенный в 1837–1846 годах в Оренбурге. Он
+                        задумывался как гостиный двор и духовный центр для башкирского и мишарского населения края. В
+                        состав входят мечеть с высоким минаретом, главный корпус и исторические постройки в стиле
+                        классицизма.
+                    </p>
+                    <p>Сегодня Караван-Сарай — один из главных символов Оренбурга и объект культурного наследия.</p>
+
+                    <div class="comments">
+                        <h2>Комментарии о достопримечательности</h2>
+                        <div class="card in">
+                            <p><b>Марина Волкова</b> · публикация: 18.03.2026</p>
+                            <p>Величественное место! Минарет виден издалека.</p>
+                        </div>
+                        <div class="card in" style="margin-top: 10px">
+                            <p><b>Ринат Юсупов</b> · публикация: 25.03.2026</p>
+                            <p>Много узнал об истории края на экскурсии.</p>
+                        </div>
+                        <div class="card in" style="margin-top: 10px">
+                            <p><b>Елена Смирнова</b> · публикация: 01.04.2026</p>
+                            <p>Отличное место для прогулки семьёй.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="correction">
+                <div class="wrap" style="max-width: 620px">
+                    <div class="card in">
+                        <h2>Предложить исправление</h2>
+                        <p class="mut">Помогите сделать информацию точнее</p>
+                        <form id="correction-form" action="#" enctype="multipart/form-data">
+                            <div class="f">
+                                <label for="correction-name">Имя пользователя</label
+                                ><input type="text" id="correction-name" placeholder="Иван Петров" />
+                            </div>
+                            <div class="f">
+                                <label for="correction-email">E-mail для обратной связи</label
+                                ><input type="email" id="correction-email" placeholder="you@example.com" />
+                            </div>
+                            <div class="f">
+                                <label for="correction-type">Тип исправления</label>
+                                <select id="correction-type">
+                                    <option>Неточность в описании</option>
+                                    <option>Устаревшие данные</option>
+                                    <option>Некорректные координаты</option>
+                                    <option>Некачественное фото</option>
+                                    <option>Другое</option>
+                                </select>
+                            </div>
+                            <div class="f">
+                                <label for="correction-text">Описание предлагаемого исправления</label
+                                ><textarea
+                                    id="correction-text"
+                                    rows="4"
+                                    placeholder="Опишите, что нужно исправить..."
+                                ></textarea>
+                            </div>
+                            <div class="f">
+                                <label for="correction-file">Подтверждающее фото</label
+                                ><input type="file" id="correction-file" accept="image/*" />
+                            </div>
+                            <div class="f">
+                                <label
+                                    ><input type="checkbox" id="correction-consent" /> Согласен на обработку
+                                    персональных данных</label
+                                >
+                            </div>
+                            <button class="btn" id="correction-submit" type="submit">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <div class="wrap">
+                <p>
+                    <a href="tel:+78007654321">8-800-765-43-21</a> ·
+                    <a href="mailto:info@orenlandmarks.ru">info@orenlandmarks.ru</a>
+                </p>
+                <nav aria-label="Меню сайта">
+                    <a href="index.html">Главная</a><a href="login.html">Вход</a><a href="register.html">Регистрация</a
+                    ><a href="profile.html">Личный кабинет</a><a href="landmark.html">Страница достопримечательности</a
+                    ><a href="admin.html">Административная панель</a><a href="index_dark.html">Главная - тёмная тема</a>
+                </nav>
+            </div>
+        </footer>
+    </body>
+</html>

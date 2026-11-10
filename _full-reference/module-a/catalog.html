@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог достопримечательностей — Открой Оренбуржье</title>
+  <meta name="description" content="Каталог достопримечательностей Оренбургской области: природные объекты, музеи, памятники архитектуры и исторические места с фото и рейтингом.">
+  <link rel="icon" href="media/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+      <img id="logo" src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+    </a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Открыть меню навигации">
+    <label class="nav-burger" for="nav-toggle"><span></span><span></span><span></span></label>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <ul class="main-nav__list">
+        <li><a class="main-nav__link" id="nav-login" href="login.html">Войти</a></li>
+        <li><a class="main-nav__link" id="nav-register" href="register.html">Регистрация</a></li>
+        <li><a class="main-nav__link" id="nav-profile" href="profile.html">Личный кабинет</a></li>
+        <li><a class="main-nav__link is-active" id="nav-catalog" href="index.html#popular-section">Популярные достопримечательности</a></li>
+        <li><a class="main-nav__link" id="go-to-search" href="index.html#search-section">Поиск достопримечательностей</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page__main" id="main">
+  <div class="container">
+    <nav aria-label="Хлебные крошки">
+      <ol class="breadcrumbs">
+        <li><a href="index.html">Главная</a></li>
+        <li>Каталог достопримечательностей</li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">Каталог достопримечательностей</h1>
+      <p class="section-subtitle">Все места Оренбургской области, добавленные путешественниками и краеведами.</p>
+
+      <form class="search-bar" action="#" method="get" style="margin-bottom:2rem; max-width:none;">
+        <label class="visually-hidden" for="catalog-category">Категория</label>
+        <select class="form-control" id="catalog-category" name="category">
+          <option>Все категории</option>
+          <option>Памятник архитектуры</option>
+          <option>Природный объект</option>
+          <option>Музей</option>
+          <option>Историческое место</option>
+        </select>
+        <label class="visually-hidden" for="catalog-sort">Сортировка</label>
+        <select class="form-control" id="catalog-sort" name="sort">
+          <option>Сначала популярные</option>
+          <option>Сначала новые</option>
+          <option>По алфавиту</option>
+        </select>
+        <button class="btn" type="submit">Применить</button>
+      </form>
+
+      <ul class="grid grid--3">
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media"><img src="media/img/landmark-razval.jpg" alt="Озеро Развал" loading="lazy"></div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Природный объект</span>
+              <h2 class="landmark-card__title">Озеро Развал</h2>
+              <p class="landmark-card__author">Автор: Ирина Соколова</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.8 (124)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media"><img src="media/img/landmark-bor.jpg" alt="Бузулукский бор" loading="lazy"></div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Природный объект</span>
+              <h2 class="landmark-card__title">Бузулукский бор</h2>
+              <p class="landmark-card__author">Автор: Пётр Кузнецов</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★★</span>4.9 (208)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media"><img src="media/img/landmark-karavan-saray.jpg" alt="Караван-Сарай" loading="lazy"></div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Памятник архитектуры</span>
+              <h2 class="landmark-card__title">Караван-Сарай</h2>
+              <p class="landmark-card__author">Автор: Алия Хасанова</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.7 (96)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media"><img src="media/img/landmark-museum.jpg" alt="Музей изобразительных искусств" loading="lazy"></div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Музей</span>
+              <h2 class="landmark-card__title">Музей искусств</h2>
+              <p class="landmark-card__author">Автор: Сергей Дорохов</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.6 (73)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media"><img src="media/img/landmark-bridge.jpg" alt="Мост через Урал" loading="lazy"></div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Историческое место</span>
+              <h2 class="landmark-card__title">Мост через Урал</h2>
+              <p class="landmark-card__author">Автор: Мария Волкова</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.5 (61)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media"><img src="media/img/landmark-mountains.jpg" alt="Губерлинские горы" loading="lazy"></div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Природный объект</span>
+              <h2 class="landmark-card__title">Губерлинские горы</h2>
+              <p class="landmark-card__author">Автор: Ирина Соколова</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.7 (58)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media"><img src="media/img/landmark-reservoir.jpg" alt="Ириклинское водохранилище" loading="lazy"></div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Природный объект</span>
+              <h2 class="landmark-card__title">Ириклинское водохранилище</h2>
+              <p class="landmark-card__author">Автор: Пётр Кузнецов</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.6 (49)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="landmark-card">
+            <div class="landmark-card__media"><img src="media/img/landmark-steppe.jpg" alt="Оренбургская степь" loading="lazy"></div>
+            <div class="landmark-card__body">
+              <span class="badge badge--category">Природный объект</span>
+              <h2 class="landmark-card__title">Оренбургская степь</h2>
+              <p class="landmark-card__author">Автор: Анна Краева</p>
+              <div class="landmark-card__footer">
+                <span class="rating"><span class="rating__stars" aria-hidden="true">★★★★<span class="is-empty">★</span></span>4.8 (87)</span>
+                <a class="btn btn--ghost" href="landmark.html">Подробнее</a>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ul>
+
+      <nav class="pagination" aria-label="Пагинация каталога">
+        <a class="pagination__item is-active" href="#" aria-current="page">1</a>
+        <a class="pagination__item" href="#">2</a>
+        <a class="pagination__item" href="#">Вперёд</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a class="site-logo" href="index.html" aria-label="Открой Оренбуржье — на главную">
+          <img src="media/logo.png" alt="Логотип «Открой Оренбуржье»" width="372" height="72">
+        </a>
+        <p>Веб-платформа для сбора и представления информации о достопримечательностях Оренбургской области.</p>
+      </div>
+      <nav aria-label="Навигация по сайту">
+        <h2 class="site-footer__title">Навигация по сайту</h2>
+        <a class="site-footer__link" href="index.html">Главная</a>
+        <a class="site-footer__link" href="login.html">Вход</a>
+        <a class="site-footer__link" href="register.html">Регистрация</a>
+        <a class="site-footer__link" href="profile.html">Личный кабинет</a>
+        <a class="site-footer__link" href="landmark.html">Страница достопримечательности</a>
+        <a class="site-footer__link" href="admin.html">Административная панель</a>
+        <a class="site-footer__link" href="index_dark.html">Главная - тёмная тема</a>
+      </nav>
+      <div>
+        <h2 class="site-footer__title">Контакты</h2>
+        <p>Оренбургская область, г. Оренбург</p>
+        <p><a href="tel:+78007654321">8-800-765-43-21</a><br>
+           <a href="mailto:info@orenlandmarks.ru">info@orenlandmarks.ru</a></p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 «Открой Оренбуржье». Все права защищены.</span>
+      <span>Региональный чемпионат «Профессионалы», компетенция «Веб-технологии».</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

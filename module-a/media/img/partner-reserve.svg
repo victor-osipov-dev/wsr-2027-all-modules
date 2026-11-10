@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64" role="img" aria-label="Заповедник Оренбургский">
+  <circle cx="30" cy="32" r="22" fill="#14503a"/>
+  <path d="M30 12c8 8 8 24 0 34-8-10-8-26 0-34z" fill="#7ccfa7"/>
+  <path d="M30 16v28" stroke="#14503a" stroke-width="2"/>
+  <text x="62" y="28" font-family="Trebuchet MS, Verdana, sans-serif" font-size="12" font-weight="700" fill="#1e2a24">ЗАПОВЕДНИК</text>
+  <text x="62" y="44" font-family="Trebuchet MS, Verdana, sans-serif" font-size="12" font-weight="700" fill="#a9822f">ОРЕНБУРГСКИЙ</text>
+</svg>

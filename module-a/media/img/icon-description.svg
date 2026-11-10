@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="Подробные описания">
+  <path fill="#123024" d="M6 2.5h8.5L20 8v13.5H6z" opacity=".25"/>
+  <path fill="#123024" d="M6 2.5h8.5L20 8v13.5H6V2.5zm8 .9V8h4.6L14 3.4z"/>
+  <path fill="#fff" d="M8.4 11h7.2v1.5H8.4zm0 3h7.2v1.5H8.4zm0 3h4.6v1.5H8.4z"/>
+</svg>

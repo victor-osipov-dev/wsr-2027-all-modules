@@ -1,0 +1,218 @@
+@charset "UTF-8";
+/* ==========================================================================
+   layout.css — каркас страниц
+   Контейнер, «липкая» шапка, навигация с бургер-меню (только CSS),
+   сетки секций, хлебные крошки и подвал сайта.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Контейнер и обёртка страницы
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.page__main { flex: 1 0 auto; }
+
+.section { padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem); }
+.section--alt { background-color: var(--color-surface-alt); }
+
+/* --------------------------------------------------------------------------
+   2. Шапка сайта
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--header-height);
+}
+
+.site-logo { display: inline-flex; align-items: center; flex: none; }
+.site-logo img { width: 186px; height: auto; }
+/* Тёмная тема: логотип подсвечивается, чтобы сохранить контраст на тёмном фоне */
+.theme-dark .site-logo img,
+html:has(#theme-toggle:checked) .site-logo img { filter: brightness(1.85) saturate(1.15); }
+
+/* --------------------------------------------------------------------------
+   3. Навигация и бургер-меню (раскрытие исключительно средствами CSS)
+   -------------------------------------------------------------------------- */
+.main-nav__list { display: flex; align-items: center; gap: .35rem; }
+
+.main-nav__link {
+  display: inline-block;
+  padding: .55rem .85rem;
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: .92rem;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--transition), color var(--transition);
+}
+.main-nav__link:hover,
+.main-nav__link:focus-visible {
+  color: var(--color-primary);
+  background-color: var(--color-surface-alt);
+  text-decoration: none;
+}
+.main-nav__link.is-active { color: var(--color-primary); }
+.main-nav__link--cta {
+  color: #fff;
+  background-color: var(--color-primary);
+}
+.main-nav__link--cta:hover { color: #fff; background-color: var(--color-primary-dark); }
+
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 46px;
+  height: 46px;
+  padding: 11px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.nav-burger span {
+  display: block;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* --------------------------------------------------------------------------
+   4. Хлебные крошки и заголовок страницы
+   -------------------------------------------------------------------------- */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  font-size: .85rem;
+  color: var(--color-muted);
+  padding-block: 1rem 0;
+}
+.breadcrumbs li + li::before { content: "/"; margin-right: .4rem; color: var(--color-border); }
+
+.page-hero {
+  padding-block: clamp(2rem, 1rem + 4vw, 3.5rem);
+  background:
+    radial-gradient(1200px 320px at 80% -20%, rgba(200, 162, 75, .18), transparent 60%),
+    linear-gradient(180deg, var(--color-surface-alt), var(--color-bg));
+}
+.page-hero p { max-width: 65ch; color: var(--color-muted); margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+   5. Сетки секций (адаптив: число колонок меняется на брейкпоинтах)
+   -------------------------------------------------------------------------- */
+.grid { display: grid; gap: 1.5rem; }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--5 { grid-template-columns: repeat(5, 1fr); }
+.grid--split { grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+
+/* --------------------------------------------------------------------------
+   6. Подвал сайта
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding-block: 2.5rem 1.5rem;
+  color: var(--color-muted);
+}
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.site-footer__title { font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-text); margin-bottom: .75rem; }
+.site-footer__link { display: block; padding: .18rem 0; color: var(--color-text); }
+.site-footer__link:hover { color: var(--color-primary); }
+.site-footer__contacts a { display: inline-flex; gap: .5rem; color: var(--color-text); }
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .5rem;
+  padding-top: 1.25rem;
+  font-size: .85rem;
+}
+.site-footer .site-logo img { width: 170px; margin-bottom: .75rem; }
+
+/* --------------------------------------------------------------------------
+   7. Адаптивность: структурные изменения 1920px → 360px
+   Ниже реализовано более 4 структурных изменений каркаса.
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  /* Изменение 1: сетка популярных карточек 5 колонок → 3 */
+  .grid--5 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 860px) {
+  /* Изменение 2: горизонтальное меню превращается в бургер-меню */
+  .nav-burger { display: flex; }
+  .main-nav {
+    position: absolute;
+    inset: 100% 0 auto 0;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition);
+  }
+  .nav-toggle:checked ~ .main-nav { max-height: 26rem; } /* раскрытие меню без JavaScript */
+  .main-nav__list { flex-direction: column; align-items: stretch; gap: 0; padding: .5rem 1.25rem 1.25rem; }
+  .main-nav__link { border-radius: var(--radius-sm); padding: .7rem .6rem; }
+
+  /* Анимация бургера в крестик */
+  .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Изменение 3: сетки 2/3/4 колонки → 1 колонка */
+  .grid--2,
+  .grid--3,
+  .grid--4,
+  .grid--5 { grid-template-columns: 1fr; }
+  .grid--split { grid-template-columns: 1fr; }
+
+  /* Изменение 4: подвал из 3 колонок → 1 колонка */
+  .site-footer__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  /* Изменение 5: уменьшение внутренних отступов и логотипа */
+  .site-logo img { width: 150px; }
+  .container { padding-inline: 1rem; }
+  .site-footer__bottom { flex-direction: column; }
+}

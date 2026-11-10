@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64" role="img" aria-label="Оренбургский краеведческий музей">
+  <circle cx="30" cy="32" r="22" fill="#1f6b4a"/>
+  <path d="M16 40h28v4H16zM20 20h20v18H20z" fill="#c8a24b"/>
+  <path d="M24 24h4v10h-4zm8 0h4v10h-4zm8 0h4v10h-4z" fill="#1f6b4a"/>
+  <text x="62" y="28" font-family="Trebuchet MS, Verdana, sans-serif" font-size="12" font-weight="700" fill="#1e2a24">КРАЕВЕДЧЕСКИЙ</text>
+  <text x="62" y="44" font-family="Trebuchet MS, Verdana, sans-serif" font-size="12" font-weight="700" fill="#1f6b4a">МУЗЕЙ</text>
+</svg>
